@@ -1,0 +1,73 @@
+        def press_enter_to_continue():
+            input(Fore.YELLOW + "Press Enter...")
+            subprocess.run(["python", "main.py"])
+
+
+        def token_bot():
+            token = input(Fore.BLUE + "Enter your bot token: ")
+            token_info = get_token_info(token)
+            display_token_info(token_info)
+            press_enter_to_continue()
+
+    elif choice == '61':
+        def search_phone_number_in_folder(folder_path):
+            if not os.path.exists(folder_path) or not os.path.isdir(folder_path):
+                print(
+                    f'{COLOR_CODE["RED"]}РћС€РёР±РєР°: "{folder_path}" РЅРµ СЏРІР»СЏРµС‚СЃСЏ РїР°РїРєРѕР№ РёР»Рё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.{COLOR_CODE["RESET"]}')
+                return
+            search_value = input(
+                f'{COLOR_CODE["RED"]}Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° РґР»СЏ РїРѕРёСЃРєР° (РІ С„РѕСЂРјР°С‚Рµ 79999999999): {COLOR_CODE["RESET"]}')
+            for root, dirs, files in os.walk(folder_path):
+                for filename in files:
+                    file_path = os.path.join(root, filename)
+                    if os.path.isfile(file_path):
+                        with open(file_path, 'r', encoding='utf-8') as file:
+                            lines = file.readlines()
+                        for line in lines:
+                            if search_value in line:
+                                print(
+                                    f'{COLOR_CODE["RED"]}РќР°Р№РґРµРЅ РЅРѕРјРµСЂ {search_value} РІ С„Р°Р№Р»Рµ: {file_path}{COLOR_CODE["RESET"]}')
+                                print(f'{COLOR_CODE["RED"]}РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ:{COLOR_CODE["RESET"]}')
+                                print(line)
+                                print('\n')
+            input(f'{COLOR_CODE["RED"]}РќР°Р¶РјРёС‚Рµ Enter......{COLOR_CODE["RESET"]}')
+
+
+        folder_path = 'Database'
+        search_phone_number_in_folder(folder_path)
+    elif choice == '62':
+        with open('deanonmanual.txt', 'r') as f:
+            content = f.read()
+            print(content)
+    elif choice == '65':
+        with open('manualforabusgb.txt', 'r') as f:
+            content = f.read()
+            print(content)
+    elif choice == '68':
+        with open('doxxingmanual.txt', 'r') as f:
+            content = f.read()
+            print(content)
+    elif choice == '71':
+        with open('doxxingmanuallvl1.txt', 'r') as f:
+            content = f.read()
+            print(content)
+    elif choice == '63':
+        with open('doxxingmanuallvl2.txt', 'r') as f:
+            content = f.read()
+            print(content)
+    elif choice == '66':
+        with open('doxxingmanuallvl3.txt', 'r') as f:
+            content = f.read()
+            print(content)
+    elif choice == '69':
+        with open('doxxingmanuallvl3.1.txt', 'r') as f:
+            content = f.read()
+            print(content)
+    elif choice == '72':
+        with open('doxxingmanuallvl3.2.txt', 'r') as f:
+            content = f.read()
+            print(content)
+    elif choice == 'q':
+        print("Exiting...")
+        time.sleep(0.5)
+        break
